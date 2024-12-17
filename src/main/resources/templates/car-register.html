@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Car Registration</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/register-style.css">
+</head>
+<body>
+    <header class="hero">
+        <h1><i class="fas fa-car"></i> Car Registration</h1>
+    </header>
+    <div class="form-container">
+        <form action="#" method="post">
+            <div class="section">
+                <h2>Car Details</h2>
+                <div class="form-group">
+                    <label for="registrationNumber"><i class="fas fa-id-card"></i> Registration Number:</label>
+                    <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter Registration Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="model"><i class="fas fa-car"></i> Model:</label>
+                    <input type="text" id="model" name="model" placeholder="Enter Car Model" required>
+                </div>
+                <div class="form-group">
+                    <label for="company"><i class="fas fa-building"></i> Company:</label>
+                    <input type="text" id="company" name="company" placeholder="Enter Car Company" required>
+                </div>
+                <div class="form-group">
+                    <label for="mileage"><i class="fas fa-tachometer-alt"></i> Mileage (km/l):</label>
+                    <input type="number" id="mileage" name="mileage" placeholder="Enter Mileage" required>
+                </div>
+                <div class="form-group">
+                    <label for="seatingCapacity"><i class="fas fa-users"></i> Seating Capacity:</label>
+                    <input type="number" id="seatingCapacity" name="seatingCapacity" placeholder="Enter Seating Capacity" required>
+                </div>
+                <div class="form-group">
+                    <label for="fuelType"><i class="fas fa-gas-pump"></i> Fuel Type:</label>
+                    <input type="text" id="fuelType" name="fuelType" placeholder="Enter Fuel Type (e.g., Petrol)" required>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Insurance & Maintenance</h2>
+                <div class="form-group">
+                    <label for="insuranceNumber"><i class="fas fa-shield-alt"></i> Insurance Number:</label>
+                    <input type="text" id="insuranceNumber" name="insuranceNumber" placeholder="Enter Insurance Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="carCondition"><i class="fas fa-clipboard-check"></i> Car Condition:</label>
+                    <input type="text" id="carCondition" name="carCondition" placeholder="Enter Car Condition (e.g., Excellent)" required>
+                </div>
+                <div class="form-group">
+                    <label for="currentStatus"><i class="fas fa-clipboard-list"></i> Current Status:</label>
+                    <input type="text" id="currentStatus" name="currentStatus" placeholder="Enter Current Status (e.g., Available)" required>
+                </div>
+                <div class="form-group">
+                    <label for="rentalRate"><i class="fas fa-dollar-sign"></i> Rental Rate (₹):</label>
+                    <input type="number" step="0.01" id="rentalRate" name="rentalRate" placeholder="Enter Rental Rate" required>
+                </div>
+                <div class="form-group">
+                    <label for="previousServiceDate"><i class="fas fa-calendar-check"></i> Previous Service Date:</label>
+                    <input type="date" id="previousServiceDate" name="previousServiceDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="nextServiceDate"><i class="fas fa-calendar-alt"></i> Next Service Date:</label>
+                    <input type="date" id="nextServiceDate" name="nextServiceDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="maintenanceStatus"><i class="fas fa-tools"></i> Maintenance Status:</label>
+                    <input type="text" id="maintenanceStatus" name="maintenanceStatus" placeholder="Enter Maintenance Status (e.g., Up-to-date)" required>
+                </div>
+            </div>
+            <button type="submit">Register Car</button>
+        </form>
+    </div>
+</body>
+</html>
