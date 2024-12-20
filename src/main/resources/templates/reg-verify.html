@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Car</title>
+    <link rel="stylesheet" th:href="@{/css/verify.css}">
+</head>
+<body>
+    <div class="verify-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="image-container">
+                <img th:src="@{/images/3-car.jpg}" alt="Car Image">
+            </div>
+        </div>
+
+        <!-- Right Section -->
+		<div class="right-section">
+		    <header>Verification</header>
+		    <form class="verify-form">
+		        <label for="registration-number">Registration Number</label>
+		        <input 
+		            type="text" 
+		            id="registration-number" 
+		            name="registrationNumber" 
+		            placeholder="Enter reg No" 
+		            required>
+		        <!-- Error Message -->
+		        <div class="error-message-field" id="error-message">
+		            Wrong Registration Number
+		        </div>
+		        <button type="submit">Confirm</button>
+		    </form>
+		</div>
+    </div>
+
+    <script src="/JS/verify.js"></script>
+</body>
+</html>

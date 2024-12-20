@@ -1,0 +1,163 @@
+/* Update Container: Add margin from all sides */
+body{
+    background-color: #f3f4f6; /* Light gray background for a clean look */
+}
+
+.verify-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal sections */
+    min-height: 50vh;
+    margin: 50px; /* Add margin from all sides */
+    padding: 0;
+    gap: 0; /* No gap between the sections */
+    overflow: hidden;
+    border-radius: 20px; /* Smooth border transition for corners */
+}
+
+/* Left Section Styles */
+.left-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #4b5563; /* Neutral gray */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.image-container {
+    position: relative; /* Parent for the pseudo-element overlay */
+    width: 85%;
+    height: 85%;
+    overflow: hidden; /* Ensure no overflow */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire area */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Black Filter Overlay */
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black filter */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Right Section Styles */
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #1f2937; /* Dark gray for a modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    color: #e5e7eb; /* Light text for readability */
+}
+
+/* Header Styling */
+.right-section header {
+    width: 100%;
+    text-align: center; /* Center the header */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3b82f6; /* Vibrant blue for emphasis */
+}
+
+/* Form Styling */
+.verify-form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Align children to take the full width */
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.verify-form label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Ensure it spans the full container width */
+    color: #d1d5db; /* Subtle light gray for labels */
+}
+
+.verify-form input {
+    width: 100%;
+    padding: 12px; /* Increase padding for larger size */
+    margin-bottom: 10px;
+    font-size: 1.2rem; /* Increase placeholder text size */
+    border: 1px solid #4b5563;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9fafb; /* Very light gray */
+    color: #374151; /* Dark text color */
+}
+
+.verify-form input::placeholder {
+    font-size: 1.1rem; /* Increase placeholder size */
+    color: #6b7280; /* Dark grayish blue */
+}
+
+.verify-form input:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+.verify-form .error-message-field {
+    color: #ef4444; /* Red for error messages */
+    font-size: 0.9rem;
+    margin-top: 10px;
+    text-align: center; /* Align error message to the center */
+    width: 90%;
+    display: none; /* Hide by default */
+	margin-left:10px;
+}
+
+.verify-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #3b82f6; /* Vibrant blue button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 50%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 102px;
+}
+
+.verify-form button:hover {
+    background-color: #2563eb; /* Darker blue */
+    transform: scale(1.05); /* Slight scaling effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adding shadow on hover */
+}
+
+.verify-form button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+}

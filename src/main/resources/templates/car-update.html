@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Registration Form</title>
-    <link rel="stylesheet" th:href="@{/css/register-style.css}">
+    <title>Car Update</title>
+    <link rel="stylesheet" href="css/update.css">
 </head>
 <body>
     <div class="container">
@@ -12,28 +12,28 @@
         <div class="form-container">
             <!-- Static Heading -->
             <div class="Heading">
-                <h1>Car Registration</h1>
+                <h1>Car Updation</h1>
             </div>
             <!-- Scrollable Form -->
             <div class="form-content">
-                <form id="registration-form">
+                <form id="Updation-form">
                     <label for="regNumber">Registration Number</label>
-                    <input type="text" id="regNumber" placeholder="Enter registration number" required>
+                    <input type="text" id="regNumber" placeholder="Enter registration number" >
                     
                     <label for="model">Model</label>
-                    <input type="text" id="model" placeholder="Enter model" required>
+                    <input type="text" id="model" placeholder="Enter model" >
                     
                     <label for="company">Company</label>
-                    <input type="text" id="company" placeholder="Enter company" required>
+                    <input type="text" id="company" placeholder="Enter company" >
                     
                     <label for="mileage">Mileage</label>
-                    <input type="text" id="mileage" placeholder="Enter mileage" required>
+                    <input type="text" id="mileage" placeholder="Enter mileage" >
                     
                     <label for="seatingCapacity">Seating Capacity</label>
-                    <input type="number" id="seatingCapacity" placeholder="Enter seating capacity" required>
+                    <input type="number" id="seatingCapacity" placeholder="Enter seating capacity" >
                     
                     <label for="fuelType">Fuel Type</label>
-                    <select id="fuelType" required>
+                    <select id="fuelType" >
                         <option value="" disabled selected>Select fuel type</option>
                         <option value="Petrol">Petrol</option>
                         <option value="Diesel">Diesel</option>
@@ -41,17 +41,17 @@
                     </select>
 
                     <label for="currentStatus">Current Status</label>
-                    <select id="currentStatus" required>
+                    <select id="currentStatus" >
                         <option value="" disabled selected>Select status</option>
                         <option value="Available">Available</option>
                         <option value="Unavailable">Unavailable</option>
                     </select>
 
                     <label for="insuranceNumber">Insurance Number</label>
-                    <input type="text" id="insuranceNumber" placeholder="Enter insurance number" required>
+                    <input type="text" id="insuranceNumber" placeholder="Enter insurance number" >
                     
                     <label for="carCondition">Car Condition</label>
-                    <select id="carCondition" required>
+                    <select id="carCondition" >
                         <option value="" disabled selected>Select condition</option>
                         <option value="Excellent">Excellent</option>
                         <option value="Good">Good</option>
@@ -59,22 +59,22 @@
                     </select>
                     
                     <label for="rentalRate">Rental Rate</label>
-                    <input type="text" id="rentalRate" placeholder="Enter rental rate" required>
+                    <input type="text" id="rentalRate" placeholder="Enter rental rate" >
                     
                     <label for="previousServiceDate">Previous Service Date</label>
-                    <input type="date" id="previousServiceDate" required>
+                    <input type="date" id="previousServiceDate" >
                     
                     <label for="nextServiceDate">Next Service Date</label>
-                    <input type="date" id="nextServiceDate" required>
+                    <input type="date" id="nextServiceDate" >
                     
                     <label for="maintenanceStatus">Maintenance Status</label>
-                    <input type="text" id="maintenanceStatus" placeholder="Enter maintenance status" required>
+                    <input type="text" id="maintenanceStatus" placeholder="Enter maintenance status" >
                     
-                    <button class="register" type="submit">Register</button>
+                    <button class="update" type="submit">Update</button>
                 </form>
             </div>
         </div>
     </div>
-	<script src="/JS/register-handle.js"></script>
+    <script src="JS/update.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Management Home</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/Hero.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img th:src="@{/images/logo.png}" alt="Car Management Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a th:href="@{/home}" class="home-link">Home</a></li>
+            <li><a th:href="@{/car-register}">Register</a></li>
+            <li><a th:href="@{/update-car}">Update</a></li>
+            <li><a th:href="@{/search-car}">Search</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="Hero">
+		<div class="left-hero">
+		    <h1>Effortless Car Management</h1>
+		    <p>Register, update, and manage your cars with ease on our user-friendly platform. Everything you need in one place!</p>
+		    <div class="cta-buttons">
+		        <a th:href="@{/car-register}" class="btn">Register Your Car</a>
+		        <a th:href="@{/search-car}" class="btn-secondary">Find a Car</a>
+		    </div>
+		</div>
+        <div class="right-hero">
+            <div class="background-color">
+                  <img class="car-hero" th:src="@{/images/thar.png}" alt="Thar Car">
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/navbar.js"></script>
+</body>
+</html>
