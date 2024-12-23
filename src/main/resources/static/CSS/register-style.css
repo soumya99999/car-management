@@ -21,7 +21,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.04);
     z-index: -1;
 }
 
@@ -35,11 +35,11 @@ body::before {
 }
 
 .form-container {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     padding: 30px;
     color: white;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 8px 32px rgba(255, 255, 255, 0.02);
 	backdrop-filter: blur(6px);
     height: 80vh;
     overflow-y: auto;
@@ -62,7 +62,7 @@ body::before {
 
  .Heading h1 {
      font-size: 24px;
-     color: white;
+     color: hotpink;
      margin: 0;
  }
 
@@ -214,3 +214,58 @@ select {
 	        padding: 8px;
 	    }
 	}
+	/* Error Message Styling */
+	.error-message {
+	    color: red;
+	    font-size: 12px;
+	    font-weight: bold; /* Makes the error message bold */
+	    margin-top: 5px; /* Adds margin above the error message */
+	    margin-bottom: 10px; /* Adds margin below the error message */
+	}
+	.error {
+	    color: red;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin-top: 5px;
+	    margin-bottom: 10px;
+	}
+
+	
+	/* Valid Input Styling */
+	input.valid, select.valid {
+	    border-color: green;
+	}
+
+	/* Popup Styling */
+	.popup {
+	    position: fixed;
+	    top: 20px;
+	    left: 50%;
+	    transform: translateX(-50%);
+	    background-color: rgba(0, 0, 0, 0.8);
+	    color: white;
+	    padding: 15px 20px;
+	    border-radius: 5px;
+	    font-size: 16px;
+	    font-weight: bold;
+	    z-index: 1000;
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    animation: fadeInOut 3s ease-out;
+	}
+
+	.popup.success {
+	    background-color: rgba(0, 255, 0, 0.8); /* Green for success */
+	}
+
+	.popup.error-popup {
+	    background-color: rgba(255, 0, 0, 0.8); /* Red for error */
+	}
+
+	@keyframes fadeInOut {
+	    0% { opacity: 0; transform: translateY(-20px); }
+	    10% { opacity: 1; transform: translateY(0); }
+	    90% { opacity: 1; transform: translateY(0); }
+	    100% { opacity: 0; transform: translateY(-20px); }
+	}
+
+

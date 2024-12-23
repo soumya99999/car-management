@@ -7,28 +7,129 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButton.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent default form submission
 
+        // Clear previous error messages
+        clearErrorMessages();
+
         // Get all input and select fields in the form
         const inputs = form.querySelectorAll("input, select");
-        let isAnyFieldFilled = false;
+        let isFormValid = true;
 
-        // Check if at least one field has a value
+        // Validate each field
         inputs.forEach((input) => {
             if (input.value.trim() !== "") {
-                isAnyFieldFilled = true;
+                // Check validity of the field
+                if (!validateField(input)) {
+                    isFormValid = false;
+                }
             }
         });
 
-        if (isAnyFieldFilled) {
-            // Display success message popup
-            displayPopup("Your form updated successfully!", "success");
-            // Optionally, reset the form after successful submission
-            form.reset();
-        } else {
-            // Display error message popup
-            displayPopup("Please fill at least one field before updating!", "error");
+        // If the form is valid, show success popup
+        if (isFormValid) {
+            displayPopup("Form submitted successfully!", "success");
+            form.reset(); // Reset form fields
         }
     });
 });
+
+// Function to validate a single field
+function validateField(field) {
+    const fieldName = field.id;
+    let isValid = true;
+    let errorMessage = "";
+
+    // Validation logic for specific fields
+    switch (fieldName) {
+		case "regNumber":
+		    if (!/^(?=.*[A-Z])(?=.*\d)[A-Z0-9-]+$/.test(field.value)) {
+		        isValid = false;
+		        errorMessage = "Registration number must be a combination of uppercase letters and numbers (e.g., AP09AB1234 or AB1C23D).";
+		    }
+		    break;
+
+        case "model":
+        case "company":
+        case "maintenanceStatus":
+			if (!/^[A-Za-z ]+$/.test(field.value)) {
+			    isValid = false;
+			    errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} should contain only letters.`;
+			}
+
+            break;
+
+        case "mileage":
+        case "rentalRate":
+            if (!/^\d+(\.\d+)?$/.test(field.value)) {
+                isValid = false;
+                errorMessage = "Please enter a valid number.";
+            }
+            break;
+
+        case "seatingCapacity":
+            if (field.value <= 0 || !/^\d+$/.test(field.value)) {
+                isValid = false;
+                errorMessage = "Seating capacity should be a positive whole number.";
+            }
+            break;
+
+		case "insuranceNumber":
+			if (!/^INS\d{10}$/.test(field.value)) {
+			        isValid = false;
+			        errorMessage = "Insurance number must be (e.g., INS12344764 ).";
+			 }
+			 break;
+
+        case "fuelType":
+        case "currentStatus":
+        case "carCondition":
+            if (!field.value) {
+                isValid = false;
+                errorMessage = "This field is required.";
+            }
+            break;
+
+        case "previousServiceDate":
+        case "nextServiceDate":
+            const prevDate = document.getElementById("previousServiceDate").value;
+            const nextDate = document.getElementById("nextServiceDate").value;
+
+            if (prevDate && nextDate && new Date(prevDate) >= new Date(nextDate)) {
+                isValid = false;
+                errorMessage =
+                    fieldName === "previousServiceDate"
+                        ? "Previous service date must be earlier than next service date."
+                        : "Next service date must be later than previous service date.";
+            }
+            break;
+
+        default:
+            break;
+    }
+
+    // Show error message if field is invalid
+    if (!isValid) {
+        displayErrorMessage(field, errorMessage);
+    }
+
+    return isValid;
+}
+
+// Function to clear all error messages
+function clearErrorMessages() {
+    const errorMessages = document.querySelectorAll(".error");
+    errorMessages.forEach((error) => error.remove());
+}
+
+// Function to display an error message below a field
+function displayErrorMessage(field, message) {
+    // Create an error message element
+    const error = document.createElement("div");
+    error.className = "error";
+    error.textContent = message;
+
+    // Append the error message after the field
+    field.parentNode.insertBefore(error, field.nextSibling);
+}
 
 // Function to display a popup message
 function displayPopup(message, type) {

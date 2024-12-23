@@ -1,17 +1,23 @@
-/* Update Container: Add margin from all sides */
-body{
+/* Base Styles */
+body {
     background-color: #f3f4f6; /* Light gray background for a clean look */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box; /* Include padding and border in element dimensions */
 }
 
 .verify-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal sections */
-    min-height: 50vh;
-    margin: 50px; /* Add margin from all sides */
-    padding: 0;
+    min-height: 100vh;
     gap: 0; /* No gap between the sections */
-    overflow: hidden;
-    border-radius: 20px; /* Smooth border transition for corners */
+    padding: 60px; /* Use padding instead of margin */
+    max-width: 100%; /* Prevent overflow */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden; /* Prevent content overflow */
 }
 
 /* Left Section Styles */
@@ -19,101 +25,73 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     background-color: #4b5563; /* Neutral gray */
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
+
 .image-container {
-    position: relative; /* Parent for the pseudo-element overlay */
     width: 85%;
     height: 85%;
-    overflow: hidden; /* Ensure no overflow */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+	aspect-ratio: 10 / 9; /* Maintain aspect ratio */
+	overflow: hidden;
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the entire area */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    object-fit: cover;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 
-/* Black Filter Overlay */
-.image-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black filter */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    pointer-events: none; /* Allow clicks to pass through */
-}
+
 
 /* Right Section Styles */
 .right-section {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #1f2937; /* Dark gray for a modern look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    position: relative;
-    color: #e5e7eb; /* Light text for readability */
+    background-color: #1f2937;
+    color: #e5e7eb;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-/* Header Styling */
 .right-section header {
-    width: 100%;
-    text-align: center; /* Center the header */
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #3b82f6; /* Vibrant blue for emphasis */
+    color: #3b82f6;
 }
 
-/* Form Styling */
 .verify-form {
     width: 100%;
     max-width: 400px;
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Align children to take the full width */
-    justify-content: center;
-    margin-top: 100px;
+    align-items: stretch;
+    margin-top: 20px;
 }
 
 .verify-form label {
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-weight: bold;
-    text-align: left; /* Align text to the left */
-    width: 100%; /* Ensure it spans the full container width */
-    color: #d1d5db; /* Subtle light gray for labels */
+    color: #d1d5db;
 }
 
 .verify-form input {
-    width: 100%;
-    padding: 12px; /* Increase padding for larger size */
+    padding: 12px;
     margin-bottom: 10px;
-    font-size: 1.2rem; /* Increase placeholder text size */
+    font-size: 1.2rem;
     border: 1px solid #4b5563;
     border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-    background-color: #f9fafb; /* Very light gray */
-    color: #374151; /* Dark text color */
-}
-
-.verify-form input::placeholder {
-    font-size: 1.1rem; /* Increase placeholder size */
-    color: #6b7280; /* Dark grayish blue */
+    background-color: #f9fafb;
+    color: #374151;
 }
 
 .verify-form input:focus {
@@ -123,19 +101,16 @@ body{
 }
 
 .verify-form .error-message-field {
-    color: #ef4444; /* Red for error messages */
+    color: #ef4444;
     font-size: 0.9rem;
     margin-top: 10px;
-    text-align: center; /* Align error message to the center */
-    width: 90%;
-    display: none; /* Hide by default */
-	margin-left:10px;
+    display: none;
 }
 
 .verify-form button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #3b82f6; /* Vibrant blue button */
+    background-color: #3b82f6;
     border: none;
     border-radius: 5px;
     color: white;
@@ -143,21 +118,107 @@ body{
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    width: 50%;
-    margin-top: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 102px;
+    margin-top: 20px;
 }
 
 .verify-form button:hover {
-    background-color: #2563eb; /* Darker blue */
-    transform: scale(1.05); /* Slight scaling effect */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adding shadow on hover */
+    background-color: #2563eb;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.verify-form button:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+/* Responsive Styles */
+@media (max-width: 1024px) { /* For tablets */
+    .verify-container {
+        grid-template-columns: 1fr; /* Stack sections vertically */
+    }
+
+    .left-section,
+    .right-section {
+        border-radius: 0; /* Remove border radius for stacked layout */
+    }
+
+    .image-container {
+        height: 300px; /* Adjust image height */
+    }
+
+    .right-section {
+        padding: 10px 20px;
+    }
+
+    .verify-form {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) { /* For small tablets and large phones */
+    .verify-container {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .image-container {
+        height: 200px; /* Reduce height for smaller screens */
+    }
+
+    .right-section header {
+        font-size: 1.5rem;
+    }
+
+    .verify-form label {
+        font-size: 1rem;
+    }
+
+    .verify-form input {
+        font-size: 1rem;
+    }
+
+    .verify-form button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) { /* For phones */
+    .verify-container {
+        padding: 10px 10px; /* Smaller padding for very small screens */
+    }
+
+    .left-section {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .image-container {
+		width: 75%;
+		height: 75%;
+    }
+
+    .image-container img {
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .right-section {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .right-section header {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .verify-form {
+        width: 100%;
+    }
+
+    .verify-form input {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .verify-form button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
 }
